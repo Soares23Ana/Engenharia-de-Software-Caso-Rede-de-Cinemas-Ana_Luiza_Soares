@@ -1,0 +1,16 @@
+@startuml
+actor Funcionario
+participant View
+participant Controller
+participant Service
+participant Repository
+
+Funcionario -> View: solicita cadastro de filme(dados)
+View -> Controller: request_cadastro(dados)
+Controller -> Service: salvar_filme(dados)
+Service -> Repository: insert_filme(dados)
+Repository --> Service: confirmação
+Service --> Controller: ok
+Controller --> View: resposta(sucesso)
+View --> Funcionario: exibe mensagem
+@enduml
